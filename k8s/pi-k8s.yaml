@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chore-speech-daemon
+  namespace: fitches
+  labels:
+    app: chore-speech-daemon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chore-speech-daemon
+  template:
+    metadata:
+      labels:
+        app: chore-speech-daemon
+    spec:
+      containers:
+      - name: rest
+        image: docker.io/gaf3/pi-k8s-fitches-chore-speech-daemon:0.1
+        imagePullPolicy: Always
+        env:
+          - name: REDIS_HOST
+            value: redis.fitches.svc.cluster.local
+          - name: REDIS_PORT
+            value: "6379"
+          - name: REDIS_CHANNEL
+            value: speech
+          - name: SLEEP
+            value: "5"
