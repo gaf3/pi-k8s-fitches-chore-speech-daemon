@@ -27,4 +27,4 @@ spec:
           - name: REDIS_CHANNEL
             value: speech
           - name: SLEEP
-            value: "5"
+            value: "1"
