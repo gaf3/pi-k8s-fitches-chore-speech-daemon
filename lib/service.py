@@ -28,7 +28,7 @@ class Daemon(object):
         """
 
         for chore in self.chore_redis.list():
-            if "completed" not in chore:
+            if "end" not in chore:
                 self.chore_redis.remind(chore)
     
     def run(self):

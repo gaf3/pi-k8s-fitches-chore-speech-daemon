@@ -50,7 +50,7 @@ class TestService(unittest.TestCase):
         self.daemon.chore_redis.chores = [
             {
                 "text": "nope",
-                "completed": 0
+                "end": 0
             },
             {
                 "text": "yep"
@@ -73,7 +73,7 @@ class TestService(unittest.TestCase):
         self.daemon.chore_redis.chores = [
             {
                 "text": "nope",
-                "completed": 0
+                "end": 0
             },
             {
                 "text": "yep"
